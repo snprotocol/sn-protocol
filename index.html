@@ -26,13 +26,9 @@
   /* NAV */
   nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.4rem 2.5rem;background:linear-gradient(to bottom,rgba(6,6,8,0.98) 0%,transparent 100%)}
   .nav-logo{font-family:var(--mono);font-size:.72rem;color:var(--eternal);letter-spacing:.45em;text-transform:uppercase}
-  .nav-right{display:flex;align-items:center;gap:2rem}
   .nav-links{display:flex;gap:2rem;list-style:none}
   .nav-links a{font-family:var(--mono);font-size:.68rem;color:var(--signal-dim);text-decoration:none;letter-spacing:.2em;text-transform:uppercase;transition:color .3s}
   .nav-links a:hover{color:var(--eternal)}
-  .lang-toggle{display:flex;gap:.4rem}
-  .lang-btn{font-family:var(--mono);font-size:.65rem;background:none;border:1px solid var(--void4);color:var(--signal-dim);padding:.3rem .6rem;cursor:pointer;letter-spacing:.15em;transition:all .3s}
-  .lang-btn.active{border-color:var(--eternal);color:var(--eternal)}
 
   /* HERO */
   .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:8rem 2rem 6.5rem;position:relative;overflow:hidden}
@@ -40,7 +36,6 @@
   @keyframes gridBreath{0%,100%{opacity:.4}50%{opacity:1}}
   .hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 45%,rgba(201,168,76,.07) 0%,rgba(27,58,107,.04) 40%,transparent 70%);pointer-events:none}
   .hero-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center}
-
   .hero-eyebrow{font-family:var(--mono);font-size:.68rem;letter-spacing:.55em;color:var(--eternal-dim);text-transform:uppercase;margin-bottom:2rem;opacity:0;animation:riseIn 1s ease .2s forwards}
 
   /* PIXEL */
@@ -69,17 +64,6 @@
   .cta-error{display:none;font-family:var(--mono);font-size:.76rem;color:#ff7a7a;letter-spacing:.08em;padding:.8rem;border:1px solid rgba(255,122,122,.55);opacity:.9;text-align:center;margin-top:.5rem}
   .cta-btn[disabled]{opacity:.7;cursor:not-allowed}
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-  [data-pending="true"] {
-    opacity: 0.45;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-  [data-pending="true"]::after {
-    content: ' · soon';
-    font-size: .55rem;
-    letter-spacing: .15em;
-    color: var(--signal-dim);
-  }
 
   /* COUNTDOWN */
   .hero-countdown{opacity:0;animation:riseIn 1s ease 1.6s forwards;margin-top:3rem;margin-bottom:1.2rem;width:100%}
@@ -156,7 +140,6 @@
   /* GLOBE */
   .globe-section{padding:7rem 2rem;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
   .globe-media{width:100%;max-width:420px;display:block;margin:0 auto;opacity:.92;filter:drop-shadow(0 0 40px rgba(27,58,107,.35));animation:globeFloat 6s ease-in-out infinite;border:1px solid var(--void3)}
-  
   @keyframes globeFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
   /* WATER */
@@ -188,11 +171,9 @@
   .antispec-cell.blind{grid-column:1/-1;background:#080810;border-top:1px solid var(--eternal-dim)}
   .antispec-cell.blind .antispec-label{color:var(--eternal)}
 
-  /* MANIFESTO */
+  /* DOCUMENTATION */
   .manifesto-section{max-width:900px;margin:0 auto;padding:4rem 2rem 8rem}
   .manifesto-header{margin-bottom:4rem;padding-bottom:1.5rem;border-bottom:1px solid var(--void3)}
-  .manifesto-content{display:none}
-  .manifesto-content.active{display:block}
   .manifesto-chapter{margin-bottom:3.5rem;padding-bottom:3.5rem;border-bottom:1px solid var(--void3);opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease}
   .manifesto-chapter.visible{opacity:1;transform:translateY(0)}
   .chapter-number{font-family:var(--mono);font-size:.62rem;letter-spacing:.5em;color:var(--eternal-dim);margin-bottom:1rem;display:block}
@@ -216,6 +197,10 @@
   .inline-note{font-family:var(--mono);font-size:.72rem;color:var(--signal-dim);line-height:1.8;letter-spacing:.04em}
   @keyframes riseIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
+  /* DOC BUTTONS */
+  .doc-btn{font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--eternal);border:1px solid var(--eternal-dim);padding:.7rem 1.2rem;text-decoration:none;transition:all .3s;display:inline-block}
+  .doc-btn:hover{border-color:var(--eternal);background:rgba(201,168,76,.05)}
+
   @media(max-width:700px){
     nav{padding:1rem 1.2rem}
     .nav-links{display:none}
@@ -228,36 +213,26 @@
     .cta-form{flex-direction:column}
     .cta-input{border-right:1px solid var(--void4);border-bottom:none}
     .hero-scroll{bottom:.6rem}
-    .globe-media{ 
-      max-width: 100%; 
-      padding: 0 1.2rem; 
-      box-sizing: border-box; 
-    }
+    .globe-media{max-width:100%;padding:0 1.2rem;box-sizing:border-box}
   }
 
-  @media(max-width:900px) and (min-width:701px) {
-    .math-grid { grid-template-columns: 1fr 1fr; }
-    .fib-stats { grid-template-columns: 1fr 1fr; }
-    .water-stats { grid-template-columns: 1fr 1fr; }
+  @media(max-width:900px) and (min-width:701px){
+    .math-grid{grid-template-columns:1fr 1fr}
+    .fib-stats{grid-template-columns:1fr 1fr}
+    .water-stats{grid-template-columns:1fr 1fr}
   }
 </style></head>
 <body>
 
 <nav>
   <div class="nav-logo">SN</div>
-  <div class="nav-right">
-    <ul class="nav-links">
-      <li><a href="#what">Protocol</a></li>
-      <li><a href="#how">Timeline</a></li>
-      <li><a href="#fibonacci">Fibonacci</a></li>
-      <li><a href="#water">Water</a></li>
-      <li><a href="#documents">Docs</a></li>
-    </ul>
-    <div class="lang-toggle">
-      <button class="lang-btn active" onclick="setLang('en')" id="btn-en">EN</button>
-      <button class="lang-btn" onclick="setLang('pt')" id="btn-pt">PT</button>
-    </div>
-  </div>
+  <ul class="nav-links">
+    <li><a href="#what">Protocol</a></li>
+    <li><a href="#how">Timeline</a></li>
+    <li><a href="#fibonacci">Fibonacci</a></li>
+    <li><a href="#water">Water</a></li>
+    <li><a href="#documents">Docs</a></li>
+  </ul>
 </nav>
 
 <!-- HERO -->
@@ -265,37 +240,37 @@
   <div class="hero-bg"></div>
   <div class="hero-glow"></div>
   <div class="hero-inner">
-    <p class="hero-eyebrow" data-en="Time Capsule Pixel Protocol · Bitcoin · Forever" data-pt="Protocolo de Pixel Cápsula do Tempo · Bitcoin · Para Sempre">Time Capsule Pixel Protocol · Bitcoin · Forever</p>
+    <p class="hero-eyebrow">Time Capsule Pixel Protocol &middot; Bitcoin &middot; Forever</p>
     <div class="pixel-hero" id="pixelHero"><div class="ph-dot"></div></div>
     <h1 class="hero-hed"><em>S</em>omeone,<br><em>N</em>owhere</h1>
-    <p class="hero-sub" data-en="On Bitcoin · Forever · Opening 03.01.2030" data-pt="No Bitcoin · Para Sempre · Abertura 03.01.2030">On Bitcoin · Forever · Opening 03.01.2030</p>
-    <p class="hero-phrase" data-en="&ldquo;What you record today, time reveals tomorrow.&rdquo;" data-pt="&ldquo;O que voc&ecirc; grava hoje, o tempo revela amanh&atilde;.&rdquo;">&ldquo;What you record today, time reveals tomorrow.&rdquo;</p>
+    <p class="hero-sub">On Bitcoin &middot; Forever &middot; Opening 03.01.2030</p>
+    <p class="hero-phrase">&ldquo;What you record today, time reveals tomorrow.&rdquo;</p>
     <div class="cta-block" id="heroCta">
       <form class="cta-form" id="heroWaitlistForm" novalidate>
-        <label class="sr-only" for="heroEmail" data-en="Email address" data-pt="Endereço de e-mail">Email address</label>
-        <input class="cta-input" type="email" id="heroEmail" name="email" autocomplete="email" required placeholder="your@email.com" aria-label="Email address" data-en="your@email.com" data-pt="seu@email.com">
-        <button class="cta-btn" type="submit" id="heroSubmitBtn" data-en="JOIN THE WAITLIST" data-pt="ENTRAR NA LISTA">JOIN THE WAITLIST</button>
+        <label class="sr-only" for="heroEmail">Email address</label>
+        <input class="cta-input" type="email" id="heroEmail" name="email" autocomplete="email" required placeholder="your@email.com" aria-label="Email address">
+        <button class="cta-btn" type="submit" id="heroSubmitBtn">JOIN THE WAITLIST</button>
       </form>
-      <p class="cta-note" data-en="No spam. First to know when registration opens." data-pt="Sem spam. Primeiro a saber quando o registro abrir.">No spam. First to know when registration opens.</p>
-      <div class="cta-error" id="heroError" data-en="We could not save your email right now. Please try again." data-pt="Não foi possível salvar seu e-mail agora. Tente novamente.">We could not save your email right now. Please try again.</div>
-      <div class="cta-success" id="heroSuccess" data-en="&#10003; You are in. We will find you when it opens." data-pt="&#10003; Você está dentro. Entraremos em contato quando abrir.">&#10003; You are in. We will find you when it opens.</div>
+      <p class="cta-note">No spam. First to know when registration opens.</p>
+      <div class="cta-error" id="heroError">We could not save your email right now. Please try again.</div>
+      <div class="cta-success" id="heroSuccess">&#10003; You are in. We will find you when it opens.</div>
     </div>
     <div class="hero-countdown">
-      <p class="cd-label" data-en="Opens in" data-pt="Abre em">Opens in</p>
+      <p class="cd-label">Opens in</p>
       <div class="countdown">
-        <div class="cd-unit"><span class="cd-val" id="cd-years">--</span><span class="cd-lbl" data-en="years" data-pt="anos">years</span></div>
+        <div class="cd-unit"><span class="cd-val" id="cd-years">--</span><span class="cd-lbl">years</span></div>
         <span class="cd-sep">:</span>
-        <div class="cd-unit"><span class="cd-val" id="cd-days">---</span><span class="cd-lbl" data-en="days" data-pt="dias">days</span></div>
+        <div class="cd-unit"><span class="cd-val" id="cd-days">---</span><span class="cd-lbl">days</span></div>
         <span class="cd-sep">:</span>
-        <div class="cd-unit"><span class="cd-val" id="cd-hours">--</span><span class="cd-lbl" data-en="hours" data-pt="horas">hours</span></div>
+        <div class="cd-unit"><span class="cd-val" id="cd-hours">--</span><span class="cd-lbl">hours</span></div>
         <span class="cd-sep">:</span>
-        <div class="cd-unit"><span class="cd-val" id="cd-mins">--</span><span class="cd-lbl" data-en="min" data-pt="min">min</span></div>
+        <div class="cd-unit"><span class="cd-val" id="cd-mins">--</span><span class="cd-lbl">min</span></div>
         <span class="cd-sep">:</span>
-        <div class="cd-unit"><span class="cd-val" id="cd-secs">--</span><span class="cd-lbl" data-en="sec" data-pt="seg">sec</span></div>
+        <div class="cd-unit"><span class="cd-val" id="cd-secs">--</span><span class="cd-lbl">sec</span></div>
       </div>
     </div>
   </div>
-  <div class="hero-scroll"><span data-en="scroll" data-pt="rolar">scroll</span><div class="scroll-line"></div></div>
+  <div class="hero-scroll"><span>scroll</span><div class="scroll-line"></div></div>
 </section>
 
 <!-- PROOF STRIP -->
@@ -310,48 +285,51 @@
 
 <!-- 01 WHAT -->
 <section class="section" id="what">
-  <span class="sec-label" data-en="01 / What SN is" data-pt="01 / O que é o SN">01 / What SN is</span>
-  <h2 class="sec-title" data-en="Not a collection.<br><em>A record.</em>" data-pt="Não é uma coleção.<br><em>É um registro.</em>">Not a collection.<br><em>A record.</em></h2>
+  <span class="sec-label">01 / What SN is</span>
+  <h2 class="sec-title">Not a collection.<br><em>A record.</em></h2>
   <div class="what-grid">
-    <div class="what-cell not" data-tag="NOT"><p data-en="Not an NFT collection &mdash; no art, no floor price, no profile picture competition." data-pt="Não é uma coleção de NFT &mdash; sem arte, sem floor price, sem competição de foto de perfil.">Not an NFT collection &mdash; no art, no floor price, no profile picture competition.</p></div>
-    <div class="what-cell is"  data-tag="IS" ><p data-en="A human registry protocol &mdash; each pixel is a sealed human record, permanent and immutable on Bitcoin." data-pt="Um protocolo de registro humano &mdash; cada pixel é um registro humano selado, permanente e imutável no Bitcoin.">A human registry protocol &mdash; each pixel is a sealed human record, permanent and immutable on Bitcoin.</p></div>
-    <div class="what-cell not" data-tag="NOT"><p data-en="Not a marketplace &mdash; secondary trading is a consequence, never the purpose." data-pt="Não é um marketplace &mdash; negociação secundária é uma consequência, nunca o propósito.">Not a marketplace &mdash; secondary trading is a consequence, never the purpose.</p></div>
-    <div class="what-cell is"  data-tag="IS" ><p data-en="A time capsule &mdash; data sealed in 2030, revealed in 2050 and 2060, by block height. No one can change the schedule." data-pt="Uma cápsula do tempo &mdash; dados selados em 2030, revelados em 2050 e 2060, por block height. Ninguém pode alterar o calendário.">A time capsule &mdash; data sealed in 2030, revealed in 2050 and 2060, by block height. No one can change the schedule.</p></div>
-    <div class="what-cell not" data-tag="NOT"><p data-en="Not a token &mdash; no SN token exists or will ever exist." data-pt="Não é um token &mdash; nenhum token SN existe ou existirá.">Not a token &mdash; no SN token exists or will ever exist.</p></div>
-    <div class="what-cell is"  data-tag="IS" ><p data-en="An archaeological record &mdash; designed to outlast its creators, its technology, and its era. Built for 500 years." data-pt="Um registro arqueológico &mdash; projetado para sobreviver aos seus criadores, à sua tecnologia e à sua era. Construído para 500 anos.">An archaeological record &mdash; designed to outlast its creators, its technology, and its era. Built for 500 years.</p></div>
+    <div class="what-cell not" data-tag="NOT"><p>Not an NFT collection &mdash; no art, no floor price, no profile picture competition.</p></div>
+    <div class="what-cell is"  data-tag="IS" ><p>A human registry protocol &mdash; each pixel is a sealed human record, permanent and immutable on Bitcoin.</p></div>
+    <div class="what-cell not" data-tag="NOT"><p>Not a marketplace &mdash; secondary trading is a consequence, never the purpose.</p></div>
+    <div class="what-cell is"  data-tag="IS" ><p>A time capsule &mdash; data sealed in 2030, revealed in 2050 and 2060, by block height. No one can change the schedule.</p></div>
+    <div class="what-cell not" data-tag="NOT"><p>Not a token &mdash; no SN token exists or will ever exist.</p></div>
+    <div class="what-cell is"  data-tag="IS" ><p>An archaeological record &mdash; designed to outlast its creators, its technology, and its era. Built for 500 years.</p></div>
   </div>
 </section>
 
 <div class="full-divider"></div>
 <div class="visual-statement"><img class="vs-img" src="assets/visual-statement.jpg" alt="SN Grid Fibonacci spiral"><div class="vs-overlay"></div></div>
-<div class="vs-caption"><p class="vs-quote" data-en="&ldquo;The Fibonacci guards those who believed first.<br>The Grid guards everyone.&rdquo;" data-pt="&ldquo;O Fibonacci guarda quem acreditou primeiro.<br>O Grid guarda todos.&rdquo;">&ldquo;The Fibonacci guards those who believed first.<br>The Grid guards everyone.&rdquo;</p><p class="vs-attr">SN &mdash; Someone, Nowhere</p></div>
+<div class="vs-caption">
+  <p class="vs-quote">&ldquo;The Fibonacci guards those who believed first.<br>The Grid guards everyone.&rdquo;</p>
+  <p class="vs-attr">SN &mdash; Someone, Nowhere</p>
+</div>
 
 <div class="full-divider"></div>
 
 <!-- 02 TIMELINE -->
 <section class="section" id="how">
-  <span class="sec-label" data-en="02 / Time is the architecture" data-pt="02 / O tempo é a arquitetura">02 / Time is the architecture</span>
-  <h2 class="sec-title" data-en="Four dates.<br><em>Centuries apart.</em>" data-pt="Quatro datas.<br><em>Séculos de diferença.</em>">Four dates.<br><em>Centuries apart.</em></h2>
+  <span class="sec-label">02 / Time is the architecture</span>
+  <h2 class="sec-title">Four dates.<br><em>Centuries apart.</em></h2>
   <div class="timeline">
     <div class="tl-item">
       <div class="tl-year">03.01.2030</div>
-      <div class="tl-event" data-en="The experiment begins" data-pt="O experimento começa">The experiment begins</div>
-      <div class="tl-desc" data-en="Pixels go on sale. 21 years to the day after Bitcoin's Genesis Block. Each buyer locks in their data &mdash; a micro-image, seven characters, one answer, one location. Sealed. Forever." data-pt="Os pixels entram em venda. 21 anos após o Bloco Genesis do Bitcoin. Cada comprador sela seus dados &mdash; microimagem, sete caracteres, uma resposta, uma localização. Selado. Para sempre.">Pixels go on sale. 21 years to the day after Bitcoin's Genesis Block. Each buyer locks in their data &mdash; a micro-image, seven characters, one answer, one location. Sealed. Forever.</div>
+      <div class="tl-event">The experiment begins</div>
+      <div class="tl-desc">Pixels go on sale. 21 years to the day after Bitcoin&rsquo;s Genesis Block. Each buyer locks in their data &mdash; a micro-image, seven characters, one answer, one location. Sealed. Forever.</div>
     </div>
     <div class="tl-item">
       <div class="tl-year">2050</div>
-      <div class="tl-event" data-en="The first revelation" data-pt="A primeira revelação">The first revelation</div>
-      <div class="tl-desc" data-en="All seven characters and all answers revealed simultaneously. Ten million pixels change at the same instant. Not an update. An event." data-pt="Todos os sete caracteres e todas as respostas são revelados simultaneamente. Dez milhões de pixels mudam no mesmo instante. Não é atualização. É um evento.">All seven characters and all answers revealed simultaneously. Ten million pixels change at the same instant. Not an update. An event.</div>
+      <div class="tl-event">The first revelation</div>
+      <div class="tl-desc">All seven characters and all answers revealed simultaneously. Ten million pixels change at the same instant. Not an update. An event.</div>
     </div>
     <div class="tl-item">
       <div class="tl-year">2060</div>
-      <div class="tl-event" data-en="Identity and location" data-pt="Identidade e localização">Identity and location</div>
-      <div class="tl-desc" data-en="Distorted locations revealed. Identities &mdash; for those who consented &mdash; made visible. The cycle closes. The DAO takes full governance. Administrative keys burned." data-pt="Localizações distorcidas reveladas. Identidades &mdash; para quem consentiu &mdash; tornadas visíveis. O ciclo fecha. A DAO assume governança plena. Chaves administrativas queimadas.">Distorted locations revealed. Identities &mdash; for those who consented &mdash; made visible. The cycle closes. The DAO takes full governance. Administrative keys burned.</div>
+      <div class="tl-event">Identity and location</div>
+      <div class="tl-desc">Distorted locations revealed. Identities &mdash; for those who consented &mdash; made visible. The cycle closes. The DAO takes full governance. Administrative keys burned.</div>
     </div>
     <div class="tl-item">
       <div class="tl-year">~2150</div>
-      <div class="tl-event" data-en="The archive endures" data-pt="O arquivo perdura">The archive endures</div>
-      <div class="tl-desc" data-en="Four cycles complete. The world unrecognizable. The pixels still there. Every life still visible. No record ever erased." data-pt="Quatro ciclos completos. O mundo irreconhecível. Os pixels ainda estão lá. Cada vida ainda visível. Nenhum registro jamais apagado.">Four cycles complete. The world unrecognizable. The pixels still there. Every life still visible. No record ever erased.</div>
+      <div class="tl-event">The archive endures</div>
+      <div class="tl-desc">Four cycles complete. The world unrecognizable. The pixels still there. Every life still visible. No record ever erased.</div>
     </div>
   </div>
 </section>
@@ -360,27 +338,27 @@
 
 <!-- 03 MATH -->
 <section class="section">
-  <span class="sec-label" data-en="03 / The mathematics" data-pt="03 / A matemática">03 / The mathematics</span>
-  <h2 class="sec-title" data-en="Simple. Transparent.<br><em>Inscribed before the first sale.</em>" data-pt="Simples. Transparente.<br><em>Inscrita antes da primeira venda.</em>">Simple. Transparent.<br><em>Inscribed before the first sale.</em></h2>
+  <span class="sec-label">03 / The mathematics</span>
+  <h2 class="sec-title">Simple. Transparent.<br><em>Inscribed before the first sale.</em></h2>
   <div class="math-grid">
-    <div class="math-cell"><span class="math-val">$2.00</span><span class="math-lbl" data-en="Starting price &middot; Pixel #1" data-pt="Preço inicial &middot; Pixel #1">Starting price &middot; Pixel #1</span></div>
-    <div class="math-cell"><span class="math-val">+$0.10</span><span class="math-lbl" data-en="Per 5,000 pixels sold" data-pt="A cada 5.000 pixels vendidos">Per 5,000 pixels sold</span></div>
-    <div class="math-cell"><span class="math-val">$2&ndash;$4</span><span class="math-lbl" data-en="All 100,000 founder pixels" data-pt="100.000 pixels fundadores">All 100,000 founder pixels</span></div>
-    <div class="math-cell"><span class="math-val">$1,226</span><span class="math-lbl" data-en="Anti-whale ceiling &middot; $202 + $1,024 (2&sup1;&sup0;)" data-pt="Teto anti-whale &middot; $202 + $1.024 (2&sup1;&sup0;)">Anti-whale ceiling &middot; $202 + $1,024 (2&sup1;&sup0;)</span></div>
-    <div class="math-cell"><span class="math-val">10M</span><span class="math-lbl" data-en="Total pixels &middot; Fixed forever" data-pt="Total de pixels &middot; Fixo para sempre">Total pixels &middot; Fixed forever</span></div>
-    <div class="math-cell"><span class="math-val">7%</span><span class="math-lbl" data-en="Royalty on resales &middot; Water + SN + Infra" data-pt="Royalty em revendas &middot; Água + SN + Infra">Royalty on resales &middot; Water + SN + Infra</span></div>
+    <div class="math-cell"><span class="math-val">$2.00</span><span class="math-lbl">Starting price &middot; Pixel #1</span></div>
+    <div class="math-cell"><span class="math-val">+$0.10</span><span class="math-lbl">Per 5,000 pixels sold</span></div>
+    <div class="math-cell"><span class="math-val">$2&ndash;$4</span><span class="math-lbl">All 100,000 founder pixels</span></div>
+    <div class="math-cell"><span class="math-val">$1,226</span><span class="math-lbl">Anti-whale ceiling &middot; $202 + $1,024 (2&sup1;&sup0;)</span></div>
+    <div class="math-cell"><span class="math-val">10M</span><span class="math-lbl">Total pixels &middot; Fixed forever</span></div>
+    <div class="math-cell"><span class="math-val">7%</span><span class="math-lbl">Royalty on resales &middot; Water + SN + Infra</span></div>
   </div>
   <div class="divider"></div>
-  <p class="inline-note" data-en="Born 03.01.2030 &mdash; exactly 21 years after Bitcoin's Genesis Block. SN completes four cycles around 2150, approximately ten years after the last Bitcoin is mined. The child born within the life of its parent. And the one that endures past it." data-pt="Nasce em 03.01.2030 &mdash; exatamente 21 anos depois do Bloco Genesis do Bitcoin. O SN completa quatro ciclos por volta de 2150, aproximadamente dez anos depois do último Bitcoin ser minerado. O filho nascido dentro da vida do pai. E o que o sobrevive.">Born 03.01.2030 &mdash; exactly 21 years after Bitcoin's Genesis Block. SN completes four cycles around 2150, approximately ten years after the last Bitcoin is mined.</p>
+  <p class="inline-note">Born 03.01.2030 &mdash; exactly 21 years after Bitcoin&rsquo;s Genesis Block. SN completes four cycles around 2150, approximately ten years after the last Bitcoin is mined. The child born within the life of its parent. And the one that endures past it.</p>
 </section>
 
 <div class="full-divider"></div>
 
 <!-- 04 FIBONACCI -->
 <section class="section" id="fibonacci">
-  <span class="sec-label" data-en="04 / The Fibonacci" data-pt="04 / O Fibonacci">04 / The Fibonacci</span>
-  <h2 class="sec-title" data-en="The golden spiral.<br><em>Encoded in mathematics. Visible forever.</em>" data-pt="A espiral dourada.<br><em>Codificada em matemática. Visível para sempre.</em>">The golden spiral.<br><em>Encoded in mathematics. Visible forever.</em></h2>
-  <p style="font-family:var(--serif);font-size:1.05rem;line-height:1.8;color:var(--signal-dim);max-width:640px;margin-bottom:1rem" data-en="The first 100,000 pixels follow the Fibonacci golden angle &mdash; &phi; = 137.507764&deg;. Each founder pixel spirals outward from the exact center of the grid, forming a pattern visible only when the entire 10 million pixel grid is seen from above." data-pt="Os primeiros 100.000 pixels seguem o ângulo dourado de Fibonacci &mdash; &phi; = 137,507764&deg;. Cada pixel fundador espirala para fora a partir do centro exato do grid, formando um padrão visível apenas quando todo o grid de 10 milhões de pixels é visto de cima.">The first 100,000 pixels follow the Fibonacci golden angle &mdash; &phi; = 137.507764&deg;. Each founder pixel spirals outward from the exact center of the grid, forming a pattern visible only when the entire 10 million pixel grid is seen from above.</p>
+  <span class="sec-label">04 / The Fibonacci</span>
+  <h2 class="sec-title">The golden spiral.<br><em>Encoded in mathematics. Visible forever.</em></h2>
+  <p style="font-family:var(--serif);font-size:1.05rem;line-height:1.8;color:var(--signal-dim);max-width:640px;margin-bottom:1rem">The first 100,000 pixels follow the Fibonacci golden angle &mdash; &phi; = 137.507764&deg;. Each founder pixel spirals outward from the exact center of the grid, forming a pattern visible only when the entire 10 million pixel grid is seen from above.</p>
   <canvas class="fib-canvas" id="fibCanvas" width="280" height="280"></canvas>
   <p class="fib-caption">The golden spiral &middot; 100,000 founders &middot; Center: Pixel #1</p>
   <div class="fib-stats">
@@ -391,14 +369,23 @@
 </section>
 
 <div class="full-divider"></div>
-<div class="globe-section" id="orbital"><div><video class="globe-media" autoplay muted loop playsinline preload="metadata" aria-label="Vídeo do globo SN"><source src="assets/globe-section.mp4" type="video/mp4"></video></div><div><span class="sec-label" data-en="05 / The Globe" data-pt="05 / O Globo">05 / The Globe</span><h2 class="sec-title" style="font-size:clamp(1.8rem,3.5vw,2.6rem)" data-en="In 2060, the world sees<br><em>where humanity was.</em>" data-pt="Em 2060, o mundo vê<br><em>onde a humanidade estava.</em>">In 2060, the world sees<br><em>where humanity was.</em></h2><p style="font-family:var(--serif);font-size:1rem;line-height:1.8;color:var(--signal-dim);max-width:480px" data-en="Distorted locations &mdash; a random radius up to 5km from the exact point &mdash; are revealed simultaneously across all 10 million pixels. The Globe becomes the first map-world showing where humanity inscribed itself on the blockchain across generations." data-pt="Localizações distorcidas &mdash; em um raio aleatório de até 5 km do ponto exato &mdash; são reveladas simultaneamente em todos os 10 milhões de pixels. O Globo torna-se o primeiro mapa-múndi a mostrar onde a humanidade se inscreveu no blockchain ao longo das gerações.">Distorted locations &mdash; a random radius up to 5km from the exact point &mdash; are revealed simultaneously across all 10 million pixels. The Globe becomes the first map-world showing where humanity inscribed itself on the blockchain across generations.</p></div></div>
+
+<!-- 05 GLOBE -->
+<div class="globe-section" id="orbital">
+  <div><video class="globe-media" autoplay muted loop playsinline preload="metadata" aria-label="SN Globe"><source src="assets/globe-section.mp4" type="video/mp4"></video></div>
+  <div>
+    <span class="sec-label">05 / The Globe</span>
+    <h2 class="sec-title" style="font-size:clamp(1.8rem,3.5vw,2.6rem)">In 2060, the world sees<br><em>where humanity was.</em></h2>
+    <p style="font-family:var(--serif);font-size:1rem;line-height:1.8;color:var(--signal-dim);max-width:480px">Distorted locations &mdash; a random radius up to 5km from the exact point &mdash; are revealed simultaneously across all 10 million pixels. The Globe becomes the first map-world showing where humanity inscribed itself on the blockchain across generations.</p>
+  </div>
+</div>
 
 <div class="full-divider"></div>
 
 <!-- 06 WATER -->
 <section class="section" id="water">
   <span class="sec-label">06 / The Water Source Protocol</span>
-  <h2 class="sec-title" data-en="Every transaction.<br><em>Water. Forever.</em>" data-pt="Cada transação.<br><em>Água. Para sempre.</em>">Every transaction.<br><em>Water. Forever.</em></h2>
+  <h2 class="sec-title">Every transaction.<br><em>Water. Forever.</em></h2>
   <div class="water-card">
     <div class="water-card-title">How it works</div>
     <p class="water-card-body">4% of every secondary market transaction is automatically routed to a public Bitcoin multisig wallet. No intermediaries. No approval required. The flow is inscribed in the protocol &mdash; it cannot be turned off, redirected, or paused by anyone, including the creator.</p>
@@ -406,7 +393,7 @@
   <div class="water-stats">
     <div class="water-stat"><span class="water-stat-val">4%</span><span class="water-stat-lbl">Of every resale &middot; Automatic &middot; Forever</span></div>
     <div class="water-stat"><span class="water-stat-val">Public</span><span class="water-stat-lbl">Multisig wallet &middot; Every transaction verifiable on-chain</span></div>
-    <div class="water-stat"><span class="water-stat-val">~$102M</span><span class="water-stat-lbl">Primary sale &middot; Event unique &middot; Agua</span></div>
+    <div class="water-stat"><span class="water-stat-val">~$102M</span><span class="water-stat-lbl">Primary sale &middot; Unique event &middot; Water</span></div>
   </div>
 </section>
 
@@ -414,8 +401,8 @@
 
 <!-- 07 RULES -->
 <section class="section">
-  <span class="sec-label" data-en="07 / The rules" data-pt="07 / As regras">07 / The rules</span>
-  <h2 class="sec-title" data-en="Immutable by design.<br><em>Not policy. Mathematics.</em>" data-pt="Imutável por design.<br><em>Não é política. É matemática.</em>">Immutable by design.<br><em>Not policy. Mathematics.</em></h2>
+  <span class="sec-label">07 / The rules</span>
+  <h2 class="sec-title">Immutable by design.<br><em>Not policy. Mathematics.</em></h2>
   <div class="rules-grid">
     <div class="rule-cell"><div class="rule-icon">&#9672;</div><div><span class="rule-label">One inscription per life</span><p class="rule-text">One human being. One pixel. Irrevocable. Biometric liveness validation at the moment of sealing &mdash; verified on-chain, no data retained.</p></div></div>
     <div class="rule-cell"><div class="rule-icon">&#9672;</div><div><span class="rule-label">Maximum 5 pixels per person</span><p class="rule-text">In the primary sale. One for you. Up to four to gift. No hoarding. No speculation at scale.</p></div></div>
@@ -437,30 +424,21 @@
 
 <div class="full-divider"></div>
 
-<!-- 08 MANIFESTO -->
+<!-- 08 DOCUMENTATION -->
 <div class="manifesto-section" id="documents">
   <div class="manifesto-header">
-    <span class="sec-label" data-en="08 / The Documentation" data-pt="08 / A documentação">08 / The Documentation</span>
-    <h2 class="sec-title" style="margin-bottom:1.5rem" data-en="Read the documentation" data-pt="Leia a documentação">Read the documentation</h2>
+    <span class="sec-label">08 / The Documentation</span>
+    <h2 class="sec-title" style="margin-bottom:1.5rem">Read the documentation</h2>
     <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem">
-      <a href="https://github.com/snprotocol/sn-protocol/raw/main/docs/SN_Manifesto_v11_EN.pdf" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--eternal);border:1px solid var(--eternal-dim);padding:.7rem 1.2rem;text-decoration:none;transition:all .3s">&#8595; Manifesto PDF (EN)</a>
-      <a href="https://github.com/snprotocol/sn-protocol/raw/main/docs/SN_Manifesto_v11_PT.pdf" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--eternal);border:1px solid var(--eternal-dim);padding:.7rem 1.2rem;text-decoration:none;transition:all .3s">&#8595; Manifesto PDF (PT)</a>
-      <a href="https://github.com/snprotocol/sn-protocol/raw/main/docs/SN_Proof_of_Protocol_v4_EN.pdf" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--eternal);border:1px solid var(--eternal-dim);padding:.7rem 1.2rem;text-decoration:none;transition:all .3s">&#8595; Proof of Protocol (EN)</a>
-      <a href="https://github.com/snprotocol/sn-protocol/raw/main/docs/SN_Proof_of_Protocol_v4_PT.pdf" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--eternal);border:1px solid var(--eternal-dim);padding:.7rem 1.2rem;text-decoration:none;transition:all .3s">&#8595; Proof of Protocol (PT)</a>
-      <a href="https://github.com/snprotocol/sn-protocol/raw/main/docs/SN_Whitepaper_v17_EN.pdf" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--eternal);border:1px solid var(--eternal-dim);padding:.7rem 1.2rem;text-decoration:none;transition:all .3s">&#8595; Whitepaper (EN)</a>
-      <a href="https://github.com/snprotocol/sn-protocol/raw/main/docs/SN_Whitepaper_v17_PT.pdf" target="_blank" rel="noopener" style="font-family:var(--mono);font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--eternal);border:1px solid var(--eternal-dim);padding:.7rem 1.2rem;text-decoration:none;transition:all .3s">&#8595; Whitepaper (PT)</a>
+      <a href="https://github.com/snprotocol/sn-protocol/raw/main/docs/SN_Manifesto_v11_EN.pdf" target="_blank" rel="noopener" class="doc-btn">&#8595; Manifesto</a>
+      <a href="https://github.com/snprotocol/sn-protocol/raw/main/docs/SN_Proof_of_Protocol_v4_EN.pdf" target="_blank" rel="noopener" class="doc-btn">&#8595; Proof of Protocol</a>
+      <a href="https://github.com/snprotocol/sn-protocol/raw/main/docs/SN_Whitepaper_v17_EN.pdf" target="_blank" rel="noopener" class="doc-btn">&#8595; Whitepaper</a>
     </div>
   </div>
-  <div class="manifesto-content active" id="manifesto-en">
-    <div class="manifesto-chapter"><span class="chapter-number">00</span><span class="chapter-title">WE ARE ALL TEMPORARY</span><div class="chapter-body"><p>You are going to die. Everyone you know is going to die. Every building, every city, every civilization will eventually crumble and be forgotten. This is not a threat. It is the oldest truth.</p><p>And yet, humanity has always tried to leave something behind. Cave paintings. Stone temples. Letters sealed inside walls. Diaries buried in gardens. Messages written for children not yet born.</p><p>The desire to be remembered is not vanity. It is the deepest human instinct &mdash; the knowledge that existence matters, that presence must leave a trace, that someone was here.</p><blockquote>SN is that trace. Built for the digital era. Designed to outlast it.</blockquote></div></div>
-    <div class="manifesto-chapter"><span class="chapter-number">01</span><span class="chapter-title">WHAT SN IS</span><div class="chapter-body"><p>SN is not an NFT. Not a marketplace. Not a token. Not a financial instrument.</p><p>SN is a human registry protocol. A permanent, decentralized record of existence &mdash; each entry representing one human being at a specific point in time and space.</p><p>Ten million pixels. Ten million lives. One grid. One experiment. One archive that will outlast everyone who contributed to it.</p><blockquote>&ldquo;A pixel is a time capsule. The value is not in the pixel itself &mdash; it is in the timeline of eternals it contains.&rdquo;</blockquote></div></div>
-    <div class="manifesto-chapter"><span class="chapter-number">11</span><span class="chapter-title">THE PROTOCOL HAS NO OWNER</span><div class="chapter-body"><p>SN will govern alongside the community during the first cycle, with decreasing power over thirty years. Veto rights expire automatically in three years. Administrative keys are burned in thirty years. In 2060, SN will have left the project completely.</p><blockquote>&ldquo;If time were flexible, SN would be a product. If content were editable, SN would be a draft. Without these two truths, there is no time capsule &mdash; only common storage.&rdquo;</blockquote></div></div>
-    <div class="manifesto-chapter"><span class="chapter-number">13</span><span class="chapter-title">THE LONG GAME</span><div class="chapter-body"><p>In 2150, when the fourth cycle closes, the world will be unrecognizable compared to today. The people reading the grid will not know us. And they will be able to look at a pixel and see: here was a human being. This is what they thought. This is where they were. This is what they left behind.</p><blockquote>&ldquo;What you record today, time reveals tomorrow. The pixel is yours. The record belongs to humanity.&rdquo;</blockquote></div></div>
-  </div>
-  <div class="manifesto-content" id="manifesto-pt">
-    <div class="manifesto-chapter"><span class="chapter-number">00</span><span class="chapter-title">SOMOS TODOS TEMPORÁRIOS</span><div class="chapter-body"><p>Você vai morrer. Todo mundo que você conhece vai morrer. Todo edifício, toda cidade, toda civilização vai, eventualmente, ruir e ser esquecida. Isso não é uma ameaça. É a verdade mais antiga.</p><p>E, ainda assim, a humanidade sempre tentou deixar algo para trás. Pinturas rupestres. Templos de pedra. Cartas seladas dentro de paredes. Diários enterrados em jardins.</p><blockquote>O SN é esse rastro. Construído para a era digital. Projetado para sobreviver a ela.</blockquote></div></div>
-    <div class="manifesto-chapter"><span class="chapter-number">13</span><span class="chapter-title">O JOGO LONGO</span><div class="chapter-body"><p>Em 2150, quando o quarto ciclo se encerrar, o mundo será irreconhecível em relação a hoje. As pessoas que lerão o grid não nos conhecerão. E poderão olhar para um pixel e ver: aqui estava um ser humano. É isso que eles pensavam. É onde eles estavam. É o que deixaram para trás.</p><blockquote>&ldquo;O que você registra hoje, o tempo revela amanhã. O pixel é seu. O registro pertence à humanidade.&rdquo;</blockquote></div></div>
-  </div>
+  <div class="manifesto-chapter"><span class="chapter-number">00</span><span class="chapter-title">WE ARE ALL TEMPORARY</span><div class="chapter-body"><p>You are going to die. Everyone you know is going to die. Every building, every city, every civilization will eventually crumble and be forgotten. This is not a threat. It is the oldest truth.</p><p>And yet, humanity has always tried to leave something behind. Cave paintings. Stone temples. Letters sealed inside walls. Diaries buried in gardens. Messages written for children not yet born.</p><p>The desire to be remembered is not vanity. It is the deepest human instinct &mdash; the knowledge that existence matters, that presence must leave a trace, that someone was here.</p><blockquote>SN is that trace. Built for the digital era. Designed to outlast it.</blockquote></div></div>
+  <div class="manifesto-chapter"><span class="chapter-number">01</span><span class="chapter-title">WHAT SN IS</span><div class="chapter-body"><p>SN is not an NFT. Not a marketplace. Not a token. Not a financial instrument.</p><p>SN is a human registry protocol. A permanent, decentralized record of existence &mdash; each entry representing one human being at a specific point in time and space.</p><p>Ten million pixels. Ten million lives. One grid. One experiment. One archive that will outlast everyone who contributed to it.</p><blockquote>&ldquo;A pixel is a time capsule. The value is not in the pixel itself &mdash; it is in the timeline of eternals it contains.&rdquo;</blockquote></div></div>
+  <div class="manifesto-chapter"><span class="chapter-number">11</span><span class="chapter-title">THE PROTOCOL HAS NO OWNER</span><div class="chapter-body"><p>SN will govern alongside the community during the first cycle, with decreasing power over thirty years. Veto rights expire automatically in three years. Administrative keys are burned in thirty years. In 2060, SN will have left the project completely.</p><blockquote>&ldquo;If time were flexible, SN would be a product. If content were editable, SN would be a draft. Without these two truths, there is no time capsule &mdash; only common storage.&rdquo;</blockquote></div></div>
+  <div class="manifesto-chapter"><span class="chapter-number">13</span><span class="chapter-title">THE LONG GAME</span><div class="chapter-body"><p>In 2150, when the fourth cycle closes, the world will be unrecognizable compared to today. The people reading the grid will not know us. And they will be able to look at a pixel and see: here was a human being. This is what they thought. This is where they were. This is what they left behind.</p><blockquote>&ldquo;What you record today, time reveals tomorrow. The pixel is yours. The record belongs to humanity.&rdquo;</blockquote></div></div>
 </div>
 
 <div class="full-divider"></div>
@@ -471,20 +449,21 @@
   <p class="final-sub">The pixel is yours. The record belongs to humanity.</p>
   <div class="cta-block" style="margin:0 auto;position:relative;z-index:1">
     <form class="cta-form" id="footerWaitlistForm" novalidate>
-      <label class="sr-only" for="footerEmail" data-en="Email address" data-pt="Endereço de e-mail">Email address</label>
-      <input class="cta-input" type="email" id="footerEmail" name="email" autocomplete="email" required placeholder="your@email.com" aria-label="Email address" data-en="your@email.com" data-pt="seu@email.com">
-      <button class="cta-btn" type="submit" id="footerSubmitBtn" data-en="JOIN THE WAITLIST" data-pt="ENTRAR NA LISTA">JOIN THE WAITLIST</button>
+      <label class="sr-only" for="footerEmail">Email address</label>
+      <input class="cta-input" type="email" id="footerEmail" name="email" autocomplete="email" required placeholder="your@email.com" aria-label="Email address">
+      <button class="cta-btn" type="submit" id="footerSubmitBtn">JOIN THE WAITLIST</button>
     </form>
     <p class="cta-note">sn-protocol.xyz &middot; Opening 03.01.2030 &middot; On Bitcoin &middot; Forever</p>
-    <div class="cta-error" id="footerError" data-en="We could not save your email right now. Please try again." data-pt="Não foi possível salvar seu e-mail agora. Tente novamente.">We could not save your email right now. Please try again.</div>
-    <div class="cta-success" id="footerSuccess" data-en="&#10003; You are in. We will find you when it opens." data-pt="&#10003; Você está dentro. Entraremos em contato quando abrir.">&#10003; You are in. We will find you when it opens.</div>
+    <div class="cta-error" id="footerError">We could not save your email right now. Please try again.</div>
+    <div class="cta-success" id="footerSuccess">&#10003; You are in. We will find you when it opens.</div>
   </div>
 </div>
 
 <footer>
   <div class="footer-left"><strong>SN &mdash; Someone, Nowhere</strong><span>Time Capsule Pixel Protocol</span></div>
-  <div class="footer-right"><span>Version 0 &middot; v23 &middot; March 2026</span><br><span>Opening 03.01.2030 &middot; On Bitcoin &middot; Forever</span><br><span style="color:var(--eternal-dim)">The protocol has no owner.</span></div>
+  <div class="footer-right"><span>Version 0 &middot; v24 &middot; March 2026</span><br><span>Opening 03.01.2030 &middot; On Bitcoin &middot; Forever</span><br><span style="color:var(--eternal-dim)">The protocol has no owner.</span></div>
 </footer>
+
 <script>
 // PIXEL HERO
 const patterns=[
@@ -544,200 +523,46 @@ tick();setInterval(tick,1000);
 })();
 
 // WAITLIST
-const SUPABASE_URL = 'https://fqyqjmcqmeoshqrdmuvs.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_RZaJh0LQxrU8OWo-K6V4XA_VNn1sARL';
-const WAITLIST_ENDPOINT = SUPABASE_URL + '/rest/v1/waitlist';
+const SUPABASE_URL='https://fqyqjmcqmeoshqrdmuvs.supabase.co';
+const SUPABASE_KEY='sb_publishable_RZaJh0LQxrU8OWo-K6V4XA_VNn1sARL';
+const WAITLIST_ENDPOINT=SUPABASE_URL+'/rest/v1/waitlist';
 
-function isValidEmail(email){
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-}
+function isValidEmail(email){return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);}
 
-
-function setWaitlistValidationError(scope){
-  const button = document.getElementById(scope + 'SubmitBtn');
-  const success = document.getElementById(scope + 'Success');
-  const error = document.getElementById(scope + 'Error');
-
-  if(!button || !success || !error) return;
-
-  button.disabled = false;
-  if(button.dataset.prev) button.textContent = button.dataset.prev;
-  error.textContent = lang === 'pt' ? 'Por favor, insira um endereço de e-mail válido.' : 'Please enter a valid email address.';
-  error.style.display = 'block';
-  success.style.display = 'none';
-}
-function setWaitlistState(scope, state){
-  const form = document.getElementById(scope + 'WaitlistForm');
-  const input = document.getElementById(scope + 'Email');
-  const button = document.getElementById(scope + 'SubmitBtn');
-  const success = document.getElementById(scope + 'Success');
-  const error = document.getElementById(scope + 'Error');
-
-  if(!form || !input || !button || !success || !error) return;
-
-  if(state === 'loading'){
-    button.disabled = true;
-    button.dataset.prev = button.textContent;
-    button.textContent = lang === 'pt' ? 'ENVIANDO...' : 'SENDING...';
-    error.style.display = 'none';
-    success.style.display = 'none';
-    return;
-  }
-
-  if(state === 'success'){
-    button.disabled = false;
-    if(button.dataset.prev) button.textContent = button.dataset.prev;
-    form.style.display = 'none';
-    error.style.display = 'none';
-    success.style.display = 'block';
-    return;
-  }
-
-  if(state === 'error'){
-    button.disabled = false;
-    if(button.dataset.prev) button.textContent = button.dataset.prev;
-    error.style.display = 'block';
-    success.style.display = 'none';
-    return;
-  }
-
-  button.disabled = false;
-  if(button.dataset.prev) button.textContent = button.dataset.prev;
-  error.style.display = 'none';
-  success.style.display = 'none';
+function setWaitlistState(scope,state){
+  const form=document.getElementById(scope+'WaitlistForm');
+  const button=document.getElementById(scope+'SubmitBtn');
+  const success=document.getElementById(scope+'Success');
+  const error=document.getElementById(scope+'Error');
+  if(!form||!button||!success||!error)return;
+  if(state==='loading'){button.disabled=true;button.dataset.prev=button.textContent;button.textContent='SENDING...';error.style.display='none';success.style.display='none';return;}
+  if(state==='success'){button.disabled=false;if(button.dataset.prev)button.textContent=button.dataset.prev;form.style.display='none';error.style.display='none';success.style.display='block';return;}
+  button.disabled=false;if(button.dataset.prev)button.textContent=button.dataset.prev;error.style.display='block';success.style.display='none';
 }
 
 async function submitWaitlist(scope){
-  const input = document.getElementById(scope + 'Email');
-  if(!input) return;
-
-  const email = input.value.trim();
+  const input=document.getElementById(scope+'Email');
+  if(!input)return;
+  const email=input.value.trim();
   if(!isValidEmail(email)){
-    setWaitlistValidationError(scope);
+    const error=document.getElementById(scope+'Error');
+    if(error){error.textContent='Please enter a valid email address.';error.style.display='block';}
     return;
   }
-
-  setWaitlistState(scope, 'loading');
-
+  setWaitlistState(scope,'loading');
   try{
-    const res = await fetch(WAITLIST_ENDPOINT, {
-      method:'POST',
-      headers:{
-        'Content-Type':'application/json',
-        'apikey': SUPABASE_KEY,
-        'Authorization': 'Bearer ' + SUPABASE_KEY,
-        'Prefer': 'return=minimal'
-      },
-      body: JSON.stringify({ email, lang })
-    });
-
-    if(!res.ok) throw new Error('Waitlist request failed');
-
-    setWaitlistState(scope, 'success');
-  }catch(_err){
-    setWaitlistValidationError(scope);
-  }
+    const res=await fetch(WAITLIST_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json','apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Prefer':'return=minimal'},body:JSON.stringify({email,lang:'en'})});
+    if(!res.ok)throw new Error('failed');
+    setWaitlistState(scope,'success');
+  }catch(_){setWaitlistState(scope,'error');}
 }
 
-document.getElementById('heroWaitlistForm')?.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  submitWaitlist('hero');
-});
+document.getElementById('heroWaitlistForm')?.addEventListener('submit',e=>{e.preventDefault();submitWaitlist('hero');});
+document.getElementById('footerWaitlistForm')?.addEventListener('submit',e=>{e.preventDefault();submitWaitlist('footer');});
 
-document.getElementById('footerWaitlistForm')?.addEventListener('submit', (e)=>{
-  e.preventDefault();
-  submitWaitlist('footer');
-});
-
-// LANGUAGE
-let lang='en';
-
-const staticTranslations = [
-  { selector: 'a[href="#what"]', en: 'Protocol', pt: 'Protocolo' },
-  { selector: 'a[href="#how"]', en: 'Timeline', pt: 'Linha do tempo' },
-  { selector: 'a[href="#fibonacci"]', en: 'Fibonacci', pt: 'Fibonacci' },
-  { selector: 'a[href="#water"]', en: 'Water', pt: 'Água' },
-  { selector: 'a[href="#documents"]', en: 'Docs', pt: 'Documentos' },
-
-  { selector: '#water .water-card-title', en: 'How it works', pt: 'Como funciona' },
-  { selector: '#water .water-card-body', en: '4% of every secondary market transaction is automatically routed to a public Bitcoin multisig wallet. No intermediaries. No approval required. The flow is inscribed in the protocol &mdash; it cannot be turned off, redirected, or paused by anyone, including the creator.', pt: '4% de cada transação no mercado secundário é direcionado automaticamente para uma carteira multisig pública em Bitcoin. Sem intermediários. Sem necessidade de aprovação. O fluxo está inscrito no protocolo &mdash; não pode ser desligado, redirecionado ou pausado por ninguém, inclusive o criador.' },
-  { selector: '#water .water-stats .water-stat:nth-child(1) .water-stat-lbl', en: 'Of every resale &middot; Automatic &middot; Forever', pt: 'De cada revenda &middot; Automático &middot; Para sempre' },
-  { selector: '#water .water-stats .water-stat:nth-child(2) .water-stat-lbl', en: 'Multisig wallet &middot; Every transaction verifiable on-chain', pt: 'Carteira multisig &middot; Cada transação verificável on-chain' },
-  { selector: '#water .water-stats .water-stat:nth-child(3) .water-stat-lbl', en: 'Primary sale &middot; Event unique &middot; Agua', pt: 'Venda primária &middot; Evento único &middot; Água' },
-  { selector: '#orbital p', en: 'Distorted locations &mdash; a random radius up to 5km from the exact point &mdash; are revealed simultaneously across all 10 million pixels. The Globe becomes the first map-world showing where humanity inscribed itself on the blockchain across generations.', pt: 'Localizações distorcidas &mdash; em um raio aleatório de até 5 km do ponto exato &mdash; são reveladas simultaneamente em todos os 10 milhões de pixels. O Globo torna-se o primeiro mapa-múndi a mostrar onde a humanidade se inscreveu no blockchain ao longo das gerações.' },
-
-  { selector: '.rules-grid .rule-cell:nth-child(1) .rule-label', en: 'One inscription per life', pt: 'Uma inscrição por vida' },
-  { selector: '.rules-grid .rule-cell:nth-child(1) .rule-text', en: 'One human being. One pixel. Irrevocable. Biometric liveness validation at the moment of sealing &mdash; verified on-chain, no data retained.', pt: 'Um ser humano. Um pixel. Irrevogável. Validação biométrica de prova de vida no momento da selagem &mdash; verificada on-chain, sem retenção de dados.' },
-  { selector: '.rules-grid .rule-cell:nth-child(2) .rule-label', en: 'Maximum 5 pixels per person', pt: 'Máximo de 5 pixels por pessoa' },
-  { selector: '.rules-grid .rule-cell:nth-child(2) .rule-text', en: 'In the primary sale. One for you. Up to four to gift. No hoarding. No speculation at scale.', pt: 'Na venda primária. Um para você. Até quatro para presentear. Sem acumulação. Sem especulação em escala.' },
-  { selector: '.rules-grid .rule-cell:nth-child(3) .rule-label', en: 'Cycles are immutable', pt: 'Os ciclos são imutáveis' },
-  { selector: '.rules-grid .rule-cell:nth-child(3) .rule-text', en: '2050 and 2060 are block heights inscribed at deploy. No DAO, no court, no catastrophe can alter the revelation schedule.', pt: '2050 e 2060 são alturas de bloco inscritas no deploy. Nenhuma DAO, tribunal ou catástrofe pode alterar o calendário de revelação.' },
-  { selector: '.rules-grid .rule-cell:nth-child(4) .rule-label', en: 'The protocol has no owner', pt: 'O protocolo não tem dono' },
-  { selector: '.rules-grid .rule-cell:nth-child(4) .rule-text', en: 'Administrative keys are burned in 2060. The creator exits entirely. What remains is mathematics, community, and time.', pt: 'As chaves administrativas são queimadas em 2060. O criador se retira completamente. O que permanece é matemática, comunidade e tempo.' },
-
-  { selector: '.antispec-header-label', en: 'Anti-speculation architecture', pt: 'Arquitetura anti-especulação' },
-  { selector: '.antispec-cell[data-n="01"] .antispec-label', en: 'Price ceiling', pt: 'Teto de preço' },
-  { selector: '.antispec-cell[data-n="02"] .antispec-label', en: '5-pixel limit', pt: 'Limite de 5 pixels' },
-  { selector: '.antispec-cell[data-n="03"] .antispec-label', en: 'Unanchored escalating table', pt: 'Tabela escalonada não ancorada' },
-  { selector: '.antispec-cell[data-n="04"] .antispec-label', en: 'Payment independence', pt: 'Independência de pagamento' },
-  { selector: '.antispec-cell[data-n="05"] .antispec-label', en: 'Blind Market', pt: 'Mercado cego' },
-  { selector: '.antispec-header-sub', en: '&middot; 4 structural layers &middot; inscribed at deploy &middot; cannot be removed', pt: '&middot; 4 camadas estruturais &middot; inscritas no deploy &middot; não podem ser removidas' },
-  { selector: '.antispec-cell[data-n="01"] .antispec-text', en: '$1,226 hard ceiling. Whales cannot buy the protocol. The formula is deterministic, public, and on-chain from day one.', pt: 'Teto rígido de $1.226. Whales não conseguem comprar o protocolo. A fórmula é determinística, pública e on-chain desde o primeiro dia.' },
-  { selector: '.antispec-cell[data-n="02"] .antispec-text', en: 'Maximum 5 pixels per person in the primary sale. Concentration of supply is structurally impossible.', pt: 'Máximo de 5 pixels por pessoa na venda primária. A concentração de oferta é estruturalmente impossível.' },
-  { selector: '.antispec-cell[data-n="03"] .antispec-text', en: 'Pixels acquired outside the protocol escalate in reconciliation cost &mdash; penalizing speculation and protecting legitimate holders.', pt: 'Pixels adquiridos fora do protocolo escalam em custo de reconciliação &mdash; penalizando a especulação e protegendo titulares legítimos.' },
-  { selector: '.antispec-cell[data-n="04"] .antispec-text', en: 'The payment layer and the permanence layer are completely independent. You pay in any currency. The record is always on Bitcoin.', pt: 'A camada de pagamento e a camada de permanência são completamente independentes. Você paga em qualquer moeda. O registro é sempre no Bitcoin.' },
-  { selector: '.antispec-cell[data-n="05"] .antispec-text', en: 'On the secondary marketplace, position, zone, and pixel ID are never shown to the buyer. You discover what you bought when you open it.', pt: 'No marketplace secundário, posição, zona e ID do pixel nunca são exibidos ao comprador. Você descobre o que comprou quando abre.' },
-
-  { selector: '#documents .manifesto-header .sec-label', en: '08 / The Documentation', pt: '08 / A documentação' },
-  { selector: '#documents .manifesto-header .sec-title', en: 'Read the documentation', pt: 'Leia a documentação' },
-  { selector: '#documents a[href="docs/manifesto-en.pdf"]', en: '&#8595; Manifesto PDF (EN)', pt: '&#8595; Manifesto PDF (EN)' },
-  { selector: '#documents a[href="docs/manifesto-pt.pdf"]', en: '&#8595; Manifesto PDF (PT)', pt: '&#8595; Manifesto PDF (PT)' },
-
-  { selector: '#waitlist .final-tagline', en: '&ldquo;What you record today,<br>time reveals tomorrow.&rdquo;', pt: '&ldquo;O que você registra hoje,<br>o tempo revela amanhã.&rdquo;' },
-  { selector: '#waitlist .final-sub', en: 'The pixel is yours. The record belongs to humanity.', pt: 'O pixel é seu. O registro pertence à humanidade.' },
-  { selector: '#waitlist .cta-note', en: 'sn-protocol.xyz &middot; Opening 03.01.2030 &middot; On Bitcoin &middot; Forever', pt: 'sn-protocol.xyz &middot; Abertura em 03.01.2030 &middot; No Bitcoin &middot; Para sempre' },
-
-  { selector: 'footer .footer-left span', en: 'Time Capsule Pixel Protocol', pt: 'Protocolo de Pixel Cápsula do Tempo' },
-  { selector: 'footer .footer-right span:nth-of-type(1)', en: 'Version 0 &middot; v23 &middot; March 2026', pt: 'Versão 0 &middot; v23 &middot; Março de 2026' },
-  { selector: 'footer .footer-right span:nth-of-type(2)', en: 'Opening 03.01.2030 &middot; On Bitcoin &middot; Forever', pt: 'Abertura em 03.01.2030 &middot; No Bitcoin &middot; Para sempre' },
-  { selector: 'footer .footer-right span:nth-of-type(3)', en: 'The protocol has no owner.', pt: 'O protocolo não tem dono.' }
-];
-
-function applyStaticTranslations(l){
-  staticTranslations.forEach((item)=>{
-    document.querySelectorAll(item.selector).forEach((el)=>{
-      el.innerHTML = l === 'pt' ? item.pt : item.en;
-    });
-  });
-}
-
-function setLang(l){
-  lang=l;
-  document.getElementById('btn-en').classList.toggle('active',l==='en');
-  document.getElementById('btn-pt').classList.toggle('active',l==='pt');
-  document.getElementById('manifesto-en').classList.toggle('active',l==='en');
-  document.getElementById('manifesto-pt').classList.toggle('active',l==='pt');
-  document.querySelectorAll('[data-'+l+']').forEach(el=>{
-    const v=el.getAttribute('data-'+l);
-    if(v===null)return;
-    if(el.tagName==='INPUT')el.placeholder=v;
-    else if(el.tagName==='BUTTON')el.textContent=v;
-    else el.innerHTML=v;
-  });
-  applyStaticTranslations(l);
-}
-
-applyStaticTranslations(lang);
 // SCROLL REVEAL
 const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});},{threshold:0.1});
 document.querySelectorAll('.manifesto-chapter').forEach(c=>obs.observe(c));
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
